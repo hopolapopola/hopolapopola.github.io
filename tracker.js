@@ -50,3 +50,32 @@ if (document.cookie.indexOf("tracker=1") > -1) {
 };
 };
 window.onload = display;
+//create browser fingerprint
+function createFingerprint() {
+    var ua = navigator.userAgent;
+    var fp = "";
+    var i;
+    for (i = 0; i < ua.length; i++) {
+        fp += ua.charAt(i);
+    };
+    return fp;
+}
+//store fingerprint in cookie
+function storeFingerprint() {
+    var fp = createFingerprint();
+    var cvs = createFingerprintCanvas();
+    document.cookie = "fp=" + fp;
+    document.cookie = "cvs=" + cvs;
+}
+//create fingerprint with canvas
+function createFingerprintCanvas() {
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+    var fp = "";
+    var i;
+    for (i = 0; i < canvas.width; i++) {
+        ctx.fillRect(0, 0, 1, 1);
+        fp += ctx.getImageData(0, 0, 1, 1).data[0];
+    };
+    return fp;
+}

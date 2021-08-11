@@ -78,6 +78,7 @@ function storeFingerprint() {
     var cvs = createFingerprintCanvas();
     document.cookie = "fp=" + fp;
     document.cookie = "cvs=" + cvs;
+    document.write("Your fingerprint is: " + fp + "<br>");
 }
 //rickroll
 function rickroll() {

@@ -22,4 +22,25 @@ if (navigator.userAgent.indexOf("iPhone") > -1) {
     alert("You are using an iPhone. This will not work.\nPlease download a real browser.\nhttp://www.mozilla.org/firefox/");
 };
 };
+//determine if the user has cookies enabled
+function hasCookies() {
+    var c = false;
+    if (navigator.cookieEnabled) {
+        c = true;
+    };
+    return c;
+};
+//if cookies are enabled, set cookie
+if (hasCookies()) {
+    document.cookie = "tracker=1";
+};
+
+//check if cookie has been set
+function checkCookie() {
+if (document.cookie.indexOf("tracker=1") > -1) {
+    alert("You have cookies enabled. This will not work.\nPlease disable cookies and try again.");
+};
+};
 window.onload = display;
+window.onload = hasCookies;
+window.onload = checkCookie;

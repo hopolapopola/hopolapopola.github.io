@@ -15,41 +15,34 @@
             document.write(fingerprint);
         }
         function getFingerprint() {
-                        var fingerprint = "";
-            var userAgent = navigator.userAgent;
-            var platform = navigator.platform;
-            var plugins = [];
-            var pluginsRaw = navigator.plugins;
-            for (var i = 0; i < pluginsRaw.length; i++) {
-                plugins.push(pluginsRaw[i].name);
-            }
-            var pluginsString = plugins.join(",");
-            var appName = navigator.appName;
-            var appVersion = navigator.appVersion;
-            var cookieEnabled = navigator.cookieEnabled;
-            var language = navigator.language;
-            var mimeTypes = [];
-            var mimeTypesRaw = navigator.mimeTypes;
-            for (var i = 0; i < mimeTypesRaw.length; i++) {
-                mimeTypes.push(mimeTypesRaw[i].type);
-            }
-            var mimeTypesString = mimeTypes.join(",");
-            var platform = navigator.platform;
-            var plugins = [];
-            var pluginsRaw = navigator.plugins;
-            for (var i = 0; i < pluginsRaw.length; i++) {
-                plugins.push(pluginsRaw[i].name);
-            }
-            var pluginsString = plugins.join(",");
-            var language = navigator.language;
-            var oscpu = navigator.oscpu;
-            var product = navigator.product;
-            var vendor = navigator.vendor;
-            var vendorSub = navigator.vendorSub;
-            var vendorSubRaw = navigator.vendorSubRaw;
-            var vendorSubString = vendorSubRaw.join(",");
-            var vendorSubString = vendorSubString.replace(/;/g, "");
+            var fingerprint = "";
+            fingerprint += navigator.userAgent;
+            fingerprint += navigator.vendor;
+            fingerprint += navigator.platform;
+            fingerprint += navigator.appVersion;
+            fingerprint += navigator.appName;
+            fingerprint += navigator.product;
+            fingerprint += navigator.cpuClass;
+            fingerprint += navigator.language;
+            fingerprint += navigator.plugins;
+            fingerprint += navigator.mimeTypes;
+            fingerprint += navigator.cookieEnabled;
+            fingerprint += navigator.javaEnabled();
+            fingerprint += navigator.onLine;
+            fingerprint += navigator.cookieEnabled;
+            fingerprint += navigator.cookieEnabled;
+            fingerprint += navigator.cookieEnabled;
+            fingerprint += navigator.cookieEnabled;
+            fingerprint += navigator.cookieEnabled;
+            fingerprint += navigator.cookieEnabled;
+            fingerprint += navigator.cookieEnabled;
+            fingerprint += navigator.cookieEnabled;
+            fingerprint += navigator.cookieEnabled;
             return fingerprint;
+        }
+    </script>
+</body>
+</html>
         }
     </script>
     <noscript>uhhhh?</noscript>

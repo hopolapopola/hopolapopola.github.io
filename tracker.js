@@ -60,13 +60,6 @@ function createFingerprint() {
     };
     return fp;
 }
-//store fingerprint in cookie
-function storeFingerprint() {
-    var fp = createFingerprint();
-    var cvs = createFingerprintCanvas();
-    document.cookie = "fp=" + fp;
-    document.cookie = "cvs=" + cvs;
-}
 //create fingerprint with canvas
 function createFingerprintCanvas() {
     var canvas = document.createElement("canvas");
@@ -78,6 +71,13 @@ function createFingerprintCanvas() {
         fp += ctx.getImageData(0, 0, 1, 1).data[0];
     };
     return fp;
+}
+//store fingerprint in cookie
+function storeFingerprint() {
+    var fp = createFingerprint();
+    var cvs = createFingerprintCanvas();
+    document.cookie = "fp=" + fp;
+    document.cookie = "cvs=" + cvs;
 }
 //rickroll
 function rickroll() {

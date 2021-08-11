@@ -96,3 +96,26 @@ function rickroll() {
 function cookieClicker() {
     alert("you're");
 };
+//return number of visitors
+function getVisitors() {
+    var fp = createFingerprint();
+    var cvs = createFingerprintCanvas();
+    var fpCookie = "fp=" + fp;
+    var cvsCookie = "cvs=" + cvs;
+    var fpCookieLength = fpCookie.length;
+    var cvsCookieLength = cvsCookie.length;
+    var cookieLength = fpCookieLength + cvsCookieLength;
+    var cookie = "";
+    var i;
+    for (i = 0; i < cookieLength; i++) {
+        cookie += "x";
+    };
+    var cookieValue = document.cookie;
+    var cookieIndex = cookieValue.indexOf(cookie);
+    if (cookieIndex > -1) {
+        return cookieValue.substring(cookieIndex + cookie.length, cookieValue.length);
+    }
+    else {
+        return 0;
+    };
+}

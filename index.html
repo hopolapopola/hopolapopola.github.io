@@ -7,16 +7,40 @@
 </form>
 <body><p> the</p>
     <form>
-        <input type="button" value="click me to fingerprint your browser" onclick="storeFingerprint()"/>
+        <input type="button" value="click me to fingerprint your browser" onclick="printFingerprint()"/>
     </form>
     <script>
-        function storeFingerprint() {
-            var fingerprint = window.navigator.userAgent;
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'fingerprint', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.send('fingerprint=' + encodeURIComponent(fingerprint));
-            document.write(xhr.responseText);
-        };
+        function printFingerprint() {
+            var fingerprint = getFingerprint();
+            document.write(fingerprint);
+        }
+        function getFingerprint() {
+            var ua = navigator.userAgent;
+            var fingerprint = "";
+            fingerprint += ua.substring(ua.indexOf("(") + 1, ua.indexOf(")"));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(";"));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            fingerprint += ua.substring(ua.indexOf(" ") + 1, ua.indexOf(" "));
+            return fingerprint;
+        }
+    </script>
+</body>
+</html>
+
     </script>
 </body>

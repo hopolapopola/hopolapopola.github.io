@@ -98,24 +98,17 @@ function cookieClicker() {
 };
 //return number of visitors
 function getVisitors() {
-    var fp = createFingerprint();
-    var cvs = createFingerprintCanvas();
-    var fpCookie = "fp=" + fp;
-    var cvsCookie = "cvs=" + cvs;
-    var fpCookieLength = fpCookie.length;
-    var cvsCookieLength = cvsCookie.length;
-    var cookieLength = fpCookieLength + cvsCookieLength;
-    var cookie = "";
-    var i;
-    for (i = 0; i < cookieLength; i++) {
-        cookie += "x";
-    };
-    var cookieValue = document.cookie;
-    var cookieIndex = cookieValue.indexOf(cookie);
-    if (cookieIndex > -1) {
-        return cookieValue.substring(cookieIndex + cookie.length, cookieValue.length);
+        var c = document.cookie;
+    var cv = c.indexOf("cvs");
+    var fp = c.indexOf("fp");
+    if (cv > -1) {
+        var cvs = c.substring(cv + 3, c.length);
+        cvs = cvs.replace(/\+/g, " ");
+        var fp = c.substring(fp + 3, c.length);
+        fp = fp.replace(/\+/g, " ");
+        return "You've been here " + cvs + " times and you've fingerprinted " + fp + " different browsers.";
     }
     else {
-        return 0;
+        return "You've been here " + "once.";
     };
-}
+};

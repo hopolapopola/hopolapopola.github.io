@@ -94,17 +94,5 @@ function rickroll() {
 }
 //cookie clicker game
 function cookieClicker() {
-    var cvs = document.cookie.indexOf("cvs");
-    var fp = document.cookie.indexOf("fp");
-    var fp = document.cookie.substring(fp + 4, fp + 4 + 32);
-    var cvs = document.cookie.substring(cvs + 4, cvs + 4 + 32);
-    var fp = parseInt(fp);
-    var cvs = parseInt(cvs);
-    var i;
-    for (i = 0; i < fp; i++) {
-        if (fp == cvs) {
-            alert("You win!");
-            rickroll();
-        };
-    };
+    alert("you're");
 };

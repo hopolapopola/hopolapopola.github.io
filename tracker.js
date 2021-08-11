@@ -85,4 +85,7 @@ function rickroll() {
     if (r > 0.5) {
         window.location = "http://www.youtube.com/watch?v=dQw4w9WgXcQ";
     };
+    elseif (r <= 0.5) {
+        window.location = "http://en.wikipedia.org/wiki/Special:Random";
+    };
 }
